@@ -1,0 +1,45 @@
+{
+  "name": "@rust-like/result",
+  "version": "1.0.1",
+  "description": "Rust-like result for Node.js.",
+  "private": true,
+  "keywords": [
+    "Rust",
+    "Rust-like",
+    "result",
+    "nodejs"
+  ],
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "scripts": {
+    "test": "npx mocha \"tests\"",
+    "start": "node .",
+    "build": "node tools/cleanup build && node tools/compile",
+    "publish": "npm run build && node tools/publish && echo publish"
+  },
+  "files": [
+    "dist",
+    "config.json",
+    "example.js",
+    "OWNERSHIP.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rust-like/result.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rust-like/result/issues"
+  },
+  "author": "Nala",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/node": "^20.11.25",
+    "chai": "^4.4.1",
+    "mocha": "^10.3.0",
+    "prompt-sync": "^4.2.0",
+    "ts-loader": "^9.5.1",
+    "typescript-declaration-webpack-plugin": "^0.3.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "homepage": "https://rust-like.hanna.gg/lib/result"
+}
