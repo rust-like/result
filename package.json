@@ -37,8 +37,6 @@
     "chai": "^4.4.1",
     "mocha": "^10.3.0",
     "prompt-sync": "^4.2.0",
-    "ts-loader": "^9.5.1",
-    "typescript-declaration-webpack-plugin": "^0.3.0",
     "webpack-cli": "^5.1.4"
   },
   "homepage": "https://rust-like.hanna.gg/lib/result"
