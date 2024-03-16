@@ -1,3 +1,5 @@
+![example workflow](https://github.com/rust-like/result/actions/workflows/node.js.yml/badge.svg)
+
 # Result.js
 
 A rust-like Result for [Node.js](https://nodejs.org/).
