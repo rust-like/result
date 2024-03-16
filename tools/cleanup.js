@@ -1,6 +1,7 @@
 const path = require('node:path');
 const fs = require('node:fs');
-const processing = require('./dots')();
+const nodots = process.argv[3] === '--no-dots';
+const processing = !nodots ? require('./dots')() : null;
 
 if(!process.argv[2]) {
 	process.stderr.write('Path required!\n');
@@ -12,6 +13,6 @@ if(!fs.existsSync(dir)) {
 	process.exit(0);
 }
 process.stdout.write(`Deleting '${dir}'`);
-processing.start();
+if(!nodots) processing.start();
 fs.rmSync(dir, { recursive: true });
-processing.end();
+if(!nodots) processing.end();

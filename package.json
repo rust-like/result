@@ -12,6 +12,7 @@
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "scripts": {
+	"build:github": "node tools/cleanup build --no-dots && tsc --removeComments && tsc --declaration --emitDeclarationOnly",
     "test": "npx mocha \"tests\"",
     "start": "node .",
     "build": "node tools/cleanup build && node tools/compile",
