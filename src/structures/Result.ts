@@ -77,7 +77,7 @@ export default class Result<T, E> {
 	public get_data(): T | E {
 		return this[data];
 	}
-
+// testing
 	// alias
 	public or(_default: T): T {
 		return this.unwrap_or(_default);
