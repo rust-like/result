@@ -69,7 +69,7 @@ export default class Result<T, E> {
 		return this;
 	}
 	public ok(): boolean {
-		return true;
+		return this[status];
 	}
 	/**
 	 * @experimental
