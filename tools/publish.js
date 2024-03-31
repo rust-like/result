@@ -11,7 +11,6 @@ const tests = path.resolve(process.cwd(), 'tests');
 const license = path.resolve(process.cwd(), 'LICENSE');
 const example = path.resolve(process.cwd(), 'example.js');
 const readme = path.resolve(process.cwd(), 'README.md');
-const config = path.resolve(process.cwd(), 'config.json');
 
 const _cwd = process.cwd();
 process.chdir(os.tmpdir());
@@ -31,7 +30,6 @@ try {
 	fs.cpSync(license, path.join(legal, 'LICENSE'));
 	fs.cpSync(example, path.join(tmp, 'example.js'));
 	fs.cpSync(readme, path.join(tmp, 'README.md'));
-	fs.cpSync(config, path.join(tmp, 'config.json'));
 
 	fs.writeFileSync(path.join(tmp, 'COPYING'),
 		'Rust-like Result for Node.JS\n'
@@ -62,8 +60,7 @@ try {
 	package.files = [
 		"lib",
 		"legal",
-		"example.js",
-		"config.json"
+		"example.js"
 	]
 	package.repository = original_package.repository;
 	package.bugs = original_package.bugs;
