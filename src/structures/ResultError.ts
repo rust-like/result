@@ -25,10 +25,10 @@ export default class ResultError extends Error {
 		return new this("Could not unwrap err, result was ok.", '02')
 	}
 	public static expect(msg: string) {
-		return new this(msg, '03')
+		return new this(msg)
 	}
 
-	constructor(message: string, code: string) {
-		super(`[Result (E${code})] ${message}`)
+	constructor(message: string, code?: string) {
+		super(code ? `[E${code}] ${message}` : message)
 	}
 }
