@@ -52,6 +52,12 @@ export default class Result<T, E> {
 	public match<R>(ok: (data: T) => R, err: (data: E) => R): R {
 		return (this[status] ? ok : err)(this[data] as any);
 	}
+	public expect(msg: string): T {
+		if(this[status])
+			return this[data] as T;
+
+		throw ResultError.expect(msg || 'No message.');
+	}
 	/**
 	 * @experimental
 	 */

@@ -14,10 +14,6 @@
  * limitations under the License.
  */
 
-const config = require('../../config.json');
-const showHelpLink =
-	process.env.RESULTJS_NO_HELP_LINK ||
-	process.argv.some(arg => arg == '--resultjs-no-help-link');
 /**
  * Result-specific error.
  */
@@ -28,8 +24,11 @@ export default class ResultError extends Error {
 	public static unwrap_err() {
 		return new this("Could not unwrap err, result was ok.", '02')
 	}
+	public static expect(msg: string) {
+		return new this(msg, '03')
+	}
 
 	constructor(message: string, code: string) {
-		super(message + (showHelpLink ? '' : ' Read more here: ' +  config.host + config.errorPath.replace(/{code}/g, code)))
+		super(`[Result (E${code})] ${message}`)
 	}
 }
