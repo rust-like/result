@@ -1,4 +1,4 @@
-const { expect } = require('chai');
+const { expect, assert } = require('chai');
 const { Ok, Err, Result, ResultError } = require('..');
 
 const result = (outcome, ok_val, err_val) => outcome ? Ok(ok_val) : Err(err_val)
@@ -105,6 +105,25 @@ describe('Result', () => {
 			expect(() => Ok(1).unwrap_err()).to.throw(ResultError)
 			const complexType = { complex: 'type' }
 			expect(() => Ok(complexType).unwrap_err()).to.throw(ResultError)
+		})
+	})
+
+	describe('<Result>.expect', () => {
+		it('Calling expect in an ok result returns the value.', () => {
+			assert(Ok(1).expect('blabla') === 1)
+			assert(Ok().expect('blabla') === undefined)
+			assert(Ok('THIS IS A TEST').expect('blabla') === 'THIS IS A TEST')
+		})
+		it('Calling expect in an err result throws an error with the proper message.', () => {
+			function getErr(fn) {
+				try {
+					fn()
+				} catch(e) {
+					return e;
+				}
+			}
+			expect(getErr(() => Err(1).expect('Not ok.'))).to.be.instanceOf(ResultError)
+			assert(getErr(() => Err(1).expect('Not ok.')).message.endsWith('Not ok.'), 'The message does not match')
 		})
 	})
 })
