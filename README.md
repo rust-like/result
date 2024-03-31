@@ -1,4 +1,4 @@
-![example workflow](https://github.com/rust-like/result/actions/workflows/node.js.yml/badge.svg)
+![tests](https://github.com/rust-like/result/actions/workflows/node.js.yml/badge.svg)
 
 # Result.js
 
