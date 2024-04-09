@@ -1,4 +1,5 @@
 ![tests](https://github.com/rust-like/result/actions/workflows/node.js.yml/badge.svg)
+[![npm version](https://badge.fury.io/js/@rust-like%2Fresult.svg)](https://badge.fury.io/js/@rust-like%2Fresult)
 
 # Result.js
 
